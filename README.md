@@ -20,7 +20,6 @@ Y8 offers two types of revenue share models:
 
 Add the following line to your index.html file:
 <script src="gameBreakBeta.js"></script>
-Download and 
 
 **Game ID Setup**
 
