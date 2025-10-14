@@ -1,0 +1,75 @@
+Y8 AFP Ads SDK (JavaScript)
+
+Official JavaScript SDK for integrating Y8 AFP Ads into HTML5 and web games.
+
+Setup Ads
+
+Add the following line to your index.html file:
+
+<script src="gameBreakBeta.js"></script>
+Revenue Share Models
+
+Y8 offers two types of revenue share models:
+
+AFP (AdSense for Platforms) — You get paid directly by Google through your own AdSense account.
+
+Manual Revenue Share — You send Y8 invoices, and the payment is handled manually.
+
+To apply for AFP:
+
+Create a Studio: https://www.y8.com/studios
+
+Once your studio is approved, you’ll be able to apply for AFP directly from your studio page.
+
+Game ID Setup
+
+You can get the Game ID from the Y8 team once your game is approved.
+
+In your main.js file, replace the placeholder Game ID with your assigned one:
+
+let _gameId = '249093'; (Replace this with your assigned Game ID before going live)
+
+Display Ads
+
+To show interstitial ads:
+nextAds();
+
+To show rewarded ads:
+showReward();
+
+Pause the game:
+pauseGame();
+
+Resume the game:
+resumeGame();
+
+Trigger rewards after completing an ad:
+rewardAdsCompleted();
+
+Call if no rewarded ads are available:
+noRewardedAdsTryLater();
+
+Trigger if the user cancels the rewarded ad:
+rewardAdsCanceled();
+
+Testing
+
+Set testAdsOn to false when the game is ready to go live.
+
+var testAdsOn = true;
+
+Example
+
+Call nextAds() when you want to display ads, such as between game stages.
+
+Remember to pause the game (including sounds) by using pauseGame() before displaying ads, and use resumeGame() to continue gameplay afterward.
+
+Example:
+
+function pauseGame() {
+console.log("pauseGame");
+}
+
+function resumeGame() {
+console.log("resumeGame");
+}
