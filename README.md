@@ -22,11 +22,10 @@ Download the gameBreakBeta.js file from this repository and place it in your pro
 Then, Add the following line to your index.html file:
 <script src="gameBreakBeta.js"></script>
 
-
 **App ID Setup**
 
-Update your App ID in the line let _appId = 'YOUR_APP_ID';
-You can create or find your App ID by registering a new application here: https://account.y8.com/applications/
+- Update your App ID in the line let _appId = 'YOUR_APP_ID';
+- You can create or find your App ID by registering a new application here: https://account.y8.com/applications/
 
 **Game ID Setup**
 
