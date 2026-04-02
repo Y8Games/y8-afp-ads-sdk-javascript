@@ -24,10 +24,8 @@ Y8 offers two types of revenue share models:
 </head>
 
 **Initialize SDK**
-let y8Sdk = null;
-
-function initY8() {
-    window.addEventListener("y8sdk.ready", function () {
+	let y8Sdk = null;
+	window.addEventListener("y8sdk.ready", function () {
         y8Sdk = y8.sdk();
 
         let appConfig = {
@@ -67,9 +65,6 @@ function initY8() {
     if (window.y8 && window.y8.emitReadyEvent) {
         window.y8.emitReadyEvent();
     }
-}
-
-window.onload = initY8;
 
 **App ID Setup**
 
@@ -82,15 +77,23 @@ window.onload = initY8;
 - gameId = '249093'; (Replace this with your assigned Game ID before going live)
 
 **Authentication**
+
 **Log In**
+
 y8Sdk.login()
+
 **Log Out**
+
 y8Sdk.logout();
+
 **Get User**
+
 y8Sdk.getUser();
 
 **Ads**
+
 **Interstitial Ad**
+
 	y8Sdk.showAd({
         type: "start",
         name: "start-game",
@@ -104,6 +107,7 @@ y8Sdk.getUser();
     }).catch((e) => console.log("Ad error", e));
 
 **Rewarded Ad**
+
 	y8Sdk.showAd({
         type: "reward",
         name: "reward-ad",
@@ -126,7 +130,9 @@ y8Sdk.getUser();
     });
 
 **Leaderboards**
+
 **Submit Score**
+
 	y8Sdk.saveLeaderboardScore({
         table: "Leaderboard",
         points: gameState.score,
@@ -139,6 +145,7 @@ y8Sdk.getUser();
         });
 		
 **Show Modal**
+
 	y8Sdk.showLeaderboard({
         table: "level_1",
         mode: "alltime",
@@ -149,7 +156,9 @@ y8Sdk.getUser();
         });
 
 **Achievements**
+
 **Award Achievement**
+
 	y8Sdk.awardAchievement({
         achievement: "Achievment Name",   // must match dashboard EXACTLY
         achievementKey: "Achievment Key",   // must match dashboard key
@@ -162,7 +171,9 @@ y8Sdk.getUser();
     .catch((error) => {
         console.error("Failed to award achievement:", error.message);
     });
+	
 **Show Modal**
+
 	y8Sdk.showAchievements()
         .then(() => {
             console.log("Achievements modal closed");
@@ -175,7 +186,9 @@ let gameState = {
     level: 3,
     coins: 200
 };
+
 **Save**
+
 y8Sdk.saveData({
         key: "save",
         value: JSON.stringify(gameState),
@@ -187,7 +200,9 @@ y8Sdk.saveData({
     .catch((error) => {
         console.error("Failed to save:", error.message);
     });
+	
 **Load**
+
 	y8Sdk.loadData({ key: "save" })
     .then((value) => {
         if (value) {
@@ -204,6 +219,7 @@ y8Sdk.saveData({
     });
 
 **Submit Image**
+
 	let canvas = document.getElementById("previewCanvas");
 	let picture = canvas.toDataURL("image/png");
 	y8Sdk.submitImage({ picture })
@@ -215,13 +231,16 @@ y8Sdk.saveData({
         });
 
 **Profile**
+
 	y8Sdk.openProfile();
 
 **Locale**
+
 	y8Sdk.getPlatformLocale()
         .then(console.log);
 
 **Blacklist Check**
+
 	y8Sdk.isBlacklisted()
         .then((blocked) => {
             console.log("Blocked:", blocked);
