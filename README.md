@@ -218,8 +218,6 @@ y8Sdk.saveData({
         if (value) {
             gameState = JSON.parse(value);
             console.log("Loaded Data:", gameState);
-
-            updateUI();
         } else {
             console.log("No save data found");
         }
@@ -257,7 +255,7 @@ y8Sdk.saveData({
         });
 ```
 
-## 📥 Full Documentation
+## Full Documentation
 
 For complete and detailed documentation, refer to the official guide:
 
@@ -266,3 +264,5 @@ For complete and detailed documentation, refer to the official guide:
 ---
 
 This repository provides a simplified and developer-friendly version of the SDK usage.
+
+
