@@ -2,6 +2,11 @@
 
 Official JavaScript SDK for integrating Y8 AFP Ads into HTML5 and web games.
 
+## 🚀 Quick Links
+
+- Example Project → `examples/basic-demo/`
+- Full Documentation → [PDF Guide](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf)
+
 **Revenue Share Models**
 
 Y8 offers two types of revenue share models:
@@ -214,7 +219,7 @@ y8Sdk.saveData({
             gameState = JSON.parse(value);
             console.log("Loaded Data:", gameState);
 
-            updateUI(); // ✅ update UI after load
+            updateUI();
         } else {
             console.log("No save data found");
         }
@@ -251,3 +256,13 @@ y8Sdk.saveData({
             console.log("Blocked:", blocked);
         });
 ```
+
+## 📥 Full Documentation
+
+For complete and detailed documentation, refer to the official guide:
+
+👉 [Download Y8 SDK Documentation (PDF)](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf)
+
+---
+
+This repository provides a simplified and developer-friendly version of the SDK usage.
