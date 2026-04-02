@@ -82,6 +82,7 @@ window.onload = initY8;
 - gameId = '249093'; (Replace this with your assigned Game ID before going live)
 
 **Authentication**
+
 **Log In**
 y8Sdk.login()
 **Log Out**
