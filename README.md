@@ -2,11 +2,6 @@
 
 Official JavaScript SDK for integrating Y8 AFP Ads into HTML5 and web games.
 
-## 🚀 Quick Links
-
-- Example Project → `examples/basic-demo/`
-- Full Documentation → [PDF Guide](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf)
-
 **Revenue Share Models**
 
 Y8 offers two types of revenue share models:
@@ -21,7 +16,12 @@ Y8 offers two types of revenue share models:
 
 - Once your studio is approved, you’ll be able to apply for AFP directly from your studio page.
 
-**Setup Ads**
+## Quick Links
+
+- Example Project → `examples/basic-demo/`
+- Full Documentation → [PDF Guide](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf)
+
+## Setup Ads
 
 **Add Script**
 ```html
@@ -84,7 +84,7 @@ Y8 offers two types of revenue share models:
 - You can get the Game ID from the Y8 team once your game is approved.
 - gameId = '249093'; (Replace this with your assigned Game ID before going live)
 
-**Authentication**
+## Authentication
 
 **Log In**
 
@@ -100,7 +100,7 @@ y8Sdk.logout();
 ```javascript
 y8Sdk.getUser();
 ```
-**Ads**
+## Ads
 
 **Interstitial Ad**
 ```javascript
@@ -139,7 +139,7 @@ y8Sdk.getUser();
         console.log("Ad error:", e);
     });
 ```
-**Leaderboards**
+## Leaderboards
 
 **Submit Score**
 ```javascript
@@ -165,7 +165,7 @@ y8Sdk.getUser();
         console.log("Leaderboard closed");
         });
 ```
-**Achievements**
+## Achievements
 
 **Award Achievement**
 ```javascript
@@ -189,7 +189,7 @@ y8Sdk.getUser();
             console.log("Achievements modal closed");
         });
 ```
-**Save / Load Data**
+## Save / Load Data
 ```javascript
 let gameState = {
     score: 1500,
@@ -226,6 +226,7 @@ y8Sdk.saveData({
         console.error("Failed to load:", error.message);
     });
 ```
+## AppImage
 **Submit Image**
 ```javascript
 	let canvas = document.getElementById("previewCanvas");
@@ -242,12 +243,12 @@ y8Sdk.saveData({
 ```javascript
 	y8Sdk.openProfile();
 ```
-**Locale**
+## Locale**
 ```javascript
 	y8Sdk.getPlatformLocale()
         .then(console.log);
 ```
-**Blacklist Check**
+## Blacklist Check**
 ```javascript
 	y8Sdk.isBlacklisted()
         .then((blocked) => {
