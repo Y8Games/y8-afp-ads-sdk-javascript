@@ -1,22 +1,121 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-<title>Ad Placement API HTML5 simple demo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Y8 SDK Test</title>
+
+<script src="https://cdn.y8.com/minimal-sdk/2-0/y8.min.js" async></script>
+<script src="y8-functions.js"></script>
+
+<style>
+body{
+font-family: Arial;
+padding:20px;
+}
+
+button{
+display:block;
+margin:6px;
+padding:10px 20px;
+font-size:16px;
+}
+
+#leaderboard-panel{
+width:500px;
+height:400px;
+border:2px solid #444;
+margin-top:20px;
+}
+</style>
+
 </head>
+
+
 <body>
-<canvas id="gameContainer" height="300px" width="300px"></canvas>
-<button id="playButton">Play</button>
-<button style="display:none" id="headsButton">Heads</button>
-<button style="display:none" id="tailsButton">Tails</button>
-<button id="muteButton">Mute sound</button>
-<button id="interstitalButton">Interstitial ads</button>
-<button id="rewardAdButton">Rewarded Ads</button>
 
+<h2>Y8 SDK Test Panel</h2>
 
+<h3>SDK</h3>
+<button onclick="initY8()">Init SDK</button>
 
+<h3>Authentication</h3>
+<button onclick="login()">Login</button>
+<button onclick="logout()">Logout</button>
+<button onclick="getUser()">Get User</button>
+<button onclick="reloadUser()">Reload User</button>
+<button onclick="getToken()">Get Token</button>
+<button onclick="refreshToken()">Refresh Token</button>
 
-<script src="game.js"></script>
-<script src="gameBreakBeta.js"></script>
-</body>
-</html>
+<!-- NEW TEXTBOX -->
+<input type="text" id="welcomeText" placeholder="Username..." style="margin-top:10px; padding:8px; width:250px;">
+
+<hr>
+
+<h3>Ads</h3>
+<button onclick="showAd()">Show Start Ad</button>
+<button onclick="showRewardAd()">Watch Reward Ad</button>
+
+<hr>
+
+<h3>Leaderboards</h3>
+<button onclick="getLeaderboards()">Get Leaderboards</button>
+<button onclick="getScores()">Get Leaderboard Scores</button>
+<button onclick="saveScore()">Save Score</button>
+<button onclick="showLeaderboard()">Show Leaderboard Modal</button>
+<button onclick="embedLeaderboard()">Embed Leaderboard</button>
+<button onclick="destroyLeaderboard()">Destroy Embedded Leaderboard</button>
+
+<div id="leaderboard-panel"></div>
+
+<h3>Achievements</h3>
+<button onclick="getAchievements()">Get Achievements</button>
+<button onclick="awardAchievement()">Award Achievement</button>
+<button onclick="showAchievements()">Show Achievements Modal</button>
+<button onclick="embedAchievements()">Embed Achievements</button>
+<button onclick="destroyAchievements()">Destroy Embedded Achievements</button>
+
+<div id="achievements-panel" style="width:500px;height:400px;border:2px solid #444;margin-top:20px;"></div>
+
+<hr>
+
+<h3>Game Data</h3>
+
+<p>Score: <span id="scoreText">0</span></p>
+<p>Coins: <span id="coinsText">0</span></p>
+
+<button onclick="addScore()">+ Score</button>
+<button onclick="addCoins()">+ Coins</button>
+
+<h3>Online Saves</h3>
+<button onclick="saveData()">Save Data</button>
+<button onclick="loadData()">Load Data</button>
+<button onclick="removeData()">Remove Data</button>
+
+<hr>
+
+<h3>App Image</h3>
+
+<div style="width:500px; border:2px solid #444; padding:10px;">
+
+    <p>Preview</p>
+
+    <canvas id="previewCanvas" width="500" height="250" style="border-radius:10px;"></canvas>
+
+    <br><br>
+
+    <button onclick="randomizeCanvas()">🎲 Randomize</button>
+    <button onclick="submitImage()">Submit Image</button>
+
+</div>
+
+<button onclick="openProfile()">Open Profile</button>
+
+<hr>
+
+<h3>Platform</h3>
+<button onclick="getLocale()">Get Platform Locale</button>
+<button onclick="checkBlacklist()">Check Blacklist</button>
+
+<p>Locale: <span id="localeText">-</span></p>
+<p>Status: <span id="blacklistText">-</span></p>
