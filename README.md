@@ -31,7 +31,7 @@ function initY8() {
         y8Sdk = y8.sdk();
 
         let appConfig = {
-            appId: "5ea39283d559303d5320eef4",
+            appId: "YOUR_APP_ID",
             autoLogin: true
         };
 
@@ -73,16 +73,13 @@ window.onload = initY8;
 
 **App ID Setup**
 
-- Update your App ID in the line let _appId = 'YOUR_APP_ID';
+- Update your App ID in the line appId = 'YOUR_APP_ID';
 - You can create or find your App ID by registering a new application here: https://account.y8.com/applications/
 
 **Game ID Setup**
 
 - You can get the Game ID from the Y8 team once your game is approved.
-
-- In your main.js file, replace the placeholder Game ID with your assigned one:
-
-- let _gameId = '249093'; (Replace this with your assigned Game ID before going live)
+- gameId = '249093'; (Replace this with your assigned Game ID before going live)
 
 **Authentication**
 **Log In**
@@ -229,4 +226,3 @@ y8Sdk.saveData({
         .then((blocked) => {
             console.log("Blocked:", blocked);
         });
-
