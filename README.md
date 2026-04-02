@@ -214,7 +214,7 @@ y8Sdk.saveData({
             gameState = JSON.parse(value);
             console.log("Loaded Data:", gameState);
 
-            updateUI(); // ✅ update UI after load
+            updateUI(); // update UI after load
         } else {
             console.log("No save data found");
         }
