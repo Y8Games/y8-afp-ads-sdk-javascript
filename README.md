@@ -19,11 +19,14 @@ Y8 offers two types of revenue share models:
 **Setup Ads**
 
 **Add Script**
+```html
 <head>
     <script src="https://cdn.y8.com/minimal-sdk/2-0/y8.min.js" async></script>
 </head>
+```
 
 **Initialize SDK**
+```javascript
 	let y8Sdk = null;
 	window.addEventListener("y8sdk.ready", function () {
         y8Sdk = y8.sdk();
@@ -65,7 +68,7 @@ Y8 offers two types of revenue share models:
     if (window.y8 && window.y8.emitReadyEvent) {
         window.y8.emitReadyEvent();
     }
-
+```
 **App ID Setup**
 
 - Update your App ID in the line appId = 'YOUR_APP_ID';
@@ -80,20 +83,22 @@ Y8 offers two types of revenue share models:
 
 **Log In**
 
+```javascript
 y8Sdk.login()
-
+```
 **Log Out**
 
+```javascript
 y8Sdk.logout();
-
+```
 **Get User**
-
+```javascript
 y8Sdk.getUser();
-
+```
 **Ads**
 
 **Interstitial Ad**
-
+```javascript
 	y8Sdk.showAd({
         type: "start",
         name: "start-game",
@@ -105,9 +110,9 @@ y8Sdk.getUser();
         adBreakDone: (info) => console.log("adBreakDone", info)
 
     }).catch((e) => console.log("Ad error", e));
-
+```
 **Rewarded Ad**
-
+```javascript
 	y8Sdk.showAd({
         type: "reward",
         name: "reward-ad",
@@ -128,11 +133,11 @@ y8Sdk.getUser();
     }).catch(function (e) {
         console.log("Ad error:", e);
     });
-
+```
 **Leaderboards**
 
 **Submit Score**
-
+```javascript
 	y8Sdk.saveLeaderboardScore({
         table: "Leaderboard",
         points: gameState.score,
@@ -143,9 +148,9 @@ y8Sdk.getUser();
         }).catch((error) => {
             console.log(error);
         });
-		
+```		
 **Show Modal**
-
+```javascript
 	y8Sdk.showLeaderboard({
         table: "level_1",
         mode: "alltime",
@@ -154,11 +159,11 @@ y8Sdk.getUser();
     }).then(() => {
         console.log("Leaderboard closed");
         });
-
+```
 **Achievements**
 
 **Award Achievement**
-
+```javascript
 	y8Sdk.awardAchievement({
         achievement: "Achievment Name",   // must match dashboard EXACTLY
         achievementKey: "Achievment Key",   // must match dashboard key
@@ -171,24 +176,24 @@ y8Sdk.getUser();
     .catch((error) => {
         console.error("Failed to award achievement:", error.message);
     });
-	
+```	
 **Show Modal**
-
+```javascript
 	y8Sdk.showAchievements()
         .then(() => {
             console.log("Achievements modal closed");
         });
-
+```
 **Save / Load Data**
-
+```javascript
 let gameState = {
     score: 1500,
     level: 3,
     coins: 200
 };
-
+```
 **Save**
-
+```javascript
 y8Sdk.saveData({
         key: "save",
         value: JSON.stringify(gameState),
@@ -200,9 +205,9 @@ y8Sdk.saveData({
     .catch((error) => {
         console.error("Failed to save:", error.message);
     });
-	
+```	
 **Load**
-
+```javascript
 	y8Sdk.loadData({ key: "save" })
     .then((value) => {
         if (value) {
@@ -217,9 +222,9 @@ y8Sdk.saveData({
     .catch((error) => {
         console.error("Failed to load:", error.message);
     });
-
+```
 **Submit Image**
-
+```javascript
 	let canvas = document.getElementById("previewCanvas");
 	let picture = canvas.toDataURL("image/png");
 	y8Sdk.submitImage({ picture })
@@ -229,19 +234,20 @@ y8Sdk.saveData({
         .catch((err) => {
             console.log("Error:", err);
         });
-
+```
 **Profile**
-
+```javascript
 	y8Sdk.openProfile();
-
+```
 **Locale**
-
+```javascript
 	y8Sdk.getPlatformLocale()
         .then(console.log);
-
+```
 **Blacklist Check**
-
+```javascript
 	y8Sdk.isBlacklisted()
         .then((blocked) => {
             console.log("Blocked:", blocked);
         });
+```
