@@ -243,12 +243,12 @@ y8Sdk.saveData({
 ```javascript
 	y8Sdk.openProfile();
 ```
-## Locale**
+## Locale
 ```javascript
 	y8Sdk.getPlatformLocale()
         .then(console.log);
 ```
-## Blacklist Check**
+## Blacklist Check
 ```javascript
 	y8Sdk.isBlacklisted()
         .then((blocked) => {
