@@ -1,20 +1,6 @@
-# Y8 AFP Ads SDK (JavaScript)
+# Y8 SDK (JavaScript)
 
 Official JavaScript SDK for integrating Y8 AFP Ads into HTML5 and web games.
-
-**Revenue Share Models**
-
-Y8 offers two types of revenue share models:
-
-- AFP (AdSense for Platforms) — You get paid directly by Google through your own AdSense account.
-
-- Manual Revenue Share — You send Y8 invoices, and the payment is handled manually.
-
-**To apply for AFP:**
-
-- Create a Studio: https://www.y8.com/studios
-
-- Once your studio is approved, you’ll be able to apply for AFP directly from your studio page.
 
 ## Quick Links
 
