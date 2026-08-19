@@ -4,9 +4,9 @@ let userName = "Guest";
 let embeddedAch = null;
 
 let gameState = {
-    score: 1500,
-    level: 3,
-    coins: 200
+    score: 0,
+    level: 1,
+    coins: 0
 };
 
 
@@ -34,19 +34,25 @@ function initY8() {
         y8Sdk.onAuth((user, error) => {
 
             if (error) {
-                console.log("Auth error", error);
+                console.log("Auth error", error);                            
+                document.getElementById("Login").style.display = "inline-block";
+                document.getElementById("Logout").style.display = "none";
                 return;
             }
             console.log("User", user);
             if (!user) {
                 // 🔴 logout case
                 userName = "Guest";
-                document.getElementById("welcomeText").value = userName;
+                document.getElementById("welcomeText").textContent = userName;
+                document.getElementById("Login").style.display = "inline-block";
+                document.getElementById("Logout").style.display = "none";
                 console.log("User logged out");
                 return;
             }
             userName = user.nickname || "Guest";
-            document.getElementById("welcomeText").value = userName;
+            document.getElementById("welcomeText").textContent = userName;
+            document.getElementById("Login").style.display = "none";
+            document.getElementById("Logout").style.display = "inline-block";
         });
 
     }, {once: true});
@@ -247,7 +253,7 @@ function getScores() {
         page: 1,
         perPage: 10,
         mode: "alltime",
-        highest: true
+        highest: true,
 
     })
         .then((scores) => {
@@ -499,6 +505,7 @@ function removeData() {
 function updateUI() {
     document.getElementById("scoreText").innerText = gameState.score;
     document.getElementById("coinsText").innerText = gameState.coins;
+    document.getElementById("levelText").innerText = gameState.level;
 }
 
 function addScore() {
@@ -510,6 +517,12 @@ function addCoins() {
     gameState.coins += 5;
     updateUI();
 }
+
+function addLevel() {
+    gameState.level += 1;
+    updateUI();
+}
+
 
 function submitImage() {
 
