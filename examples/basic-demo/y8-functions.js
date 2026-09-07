@@ -23,7 +23,6 @@ function initY8() {
 
         let adConfig = {
             gameId: "249093",
-            test: true,
             preloadAdBreaks: "auto",
             sound: "on",
             onReady: () => console.log("Ads ready")
@@ -608,6 +607,55 @@ function randomizeCanvas() {
 function getRandomColor() {
     return `hsl(${Math.random() * 360}, 70%, 60%)`;
 }
+
+function trackEvent() {
+
+    if (!y8Sdk) {
+        console.log("SDK not ready");
+        return;
+    }
+
+    // The event happened once and measured nothing.
+    y8Sdk.trackCustomEvent("level_complete");
+
+    console.log("Tracked: level_complete");
+
+}
+
+
+function trackEventWithValue() {
+
+    if (!y8Sdk) {
+        console.log("SDK not ready");
+        return;
+    }
+
+    // `value` is what the event measured. This is one entry carrying the score,
+    // which is where any number you want to read back later belongs.
+    y8Sdk.trackCustomEvent("score_submitted", gameState.score);
+
+    console.log("Tracked: score_submitted, value", gameState.score);
+
+}
+
+
+function trackEventWithAmount() {
+
+    if (!y8Sdk) {
+        console.log("SDK not ready");
+        return;
+    }
+
+    // `amount` is how many times the event happened, so this records three
+    // enemy_defeated entries - not one entry holding the number 3. Never put a
+    // measurement here: it multiplies your writes and records no number. It
+    // defaults to 1 and is capped at 100.
+    y8Sdk.trackCustomEvent("enemy_defeated", null, 3);
+
+    console.log("Tracked: enemy_defeated x3");
+
+}
+
 
 function getLocale() {
 

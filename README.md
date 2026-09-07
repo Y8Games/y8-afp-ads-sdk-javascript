@@ -5,7 +5,9 @@ Official JavaScript SDK for integrating Y8 AFP Ads into HTML5 and web games.
 ## Quick Links
 
 - Example Project → `examples/basic-demo/`
-- Full Documentation → [PDF Guide](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf)
+- Full Documentation → [docs.y8.com](https://docs.y8.com/)
+- Getting Started → [docs.y8.com/sdk/intro](https://docs.y8.com/sdk/intro/)
+- PDF Guide → [readme.pdf](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf?v=2-11-0)
 
 ## Setup Ads
 
@@ -29,7 +31,6 @@ Official JavaScript SDK for integrating Y8 AFP Ads into HTML5 and web games.
 
         let adConfig = {
             gameId: "249093",
-            test: true,
             preloadAdBreaks: "auto",
             sound: "on",
             onReady: () => console.log("Ads ready")
@@ -175,6 +176,37 @@ y8Sdk.getUser();
             console.log("Achievements modal closed");
         });
 ```
+## Analytics
+
+**Track a Custom Event**
+```javascript
+	// The event happened once, with nothing to measure
+	y8Sdk.trackCustomEvent("level_complete");
+
+	// The event happened once and measured 48135
+	y8Sdk.trackCustomEvent("shipment_collected", 48135);
+
+	// The event happened 3 times
+	y8Sdk.trackCustomEvent("enemy_defeated", null, 3);
+```
+
+**`value` is what you measured, `amount` is how many times it happened**
+
+`amount` repeats the event into that many identical entries. It does not record
+a number, so passing a measurement there multiplies your writes by whatever you
+meant to record and stores nothing you can read back.
+
+```javascript
+	// WRONG - creates 48,135 identical entries and records no number
+	y8Sdk.trackCustomEvent("shipment_collected", null, 48135);
+
+	// RIGHT - creates one entry recording the number 48,135
+	y8Sdk.trackCustomEvent("shipment_collected", 48135);
+```
+
+`amount` defaults to 1 and is capped at 100. Anything above the cap is recorded
+as a single occurrence. Full details: [docs.y8.com/sdk/analytics](https://docs.y8.com/sdk/analytics/).
+
 ## Save / Load Data
 ```javascript
 let gameState = {
@@ -244,9 +276,19 @@ y8Sdk.saveData({
 
 ## Full Documentation
 
-For complete and detailed documentation, refer to the official guide:
+This README covers the calls this example makes. The complete reference —
+every option, the platform-specific guides, and the developer portal setup —
+lives at:
 
-👉 [Download Y8 SDK Documentation (PDF)](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf)
+👉 **[docs.y8.com](https://docs.y8.com/)**
+
+The same material is kept as a PDF as well:
+[Y8 SDK Documentation](https://storage.y8.com/gintaras/html5/cmp_sdk_game/readme.pdf?v=2-11-0).
+
+Both are current. The site is updated first, so when the two disagree, follow
+the site. The `?v=` on the PDF link is a cache-buster - the file is served with
+a two-week `max-age`, so bump it whenever the PDF is replaced or readers keep
+being handed the copy they already have.
 
 ---
 
